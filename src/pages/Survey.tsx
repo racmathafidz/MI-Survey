@@ -26,7 +26,8 @@ export default function SurveyPage() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const allAnswers = useAppSelector(selectAnswers);
-  const savedCurrentStep = Object.keys(allAnswers).length;
+  const savedCurrentStep =
+    Object.keys(allAnswers).length < 10 ? Object.keys(allAnswers).length : 9;
   const [currentStep, setCurrentStep] = useState(
     Math.max(0, savedCurrentStep ?? 0)
   );
