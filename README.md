@@ -1,69 +1,87 @@
-# React + TypeScript + Vite
+# 📝 MI Survey
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A step-by-step survey application built with **React, Vite, TypeScript, Redux Toolkit, and Bootstrap**.  
+The app provides a 10-question survey flow with persistence, countdown timer, and summary review.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Demo
+Check out the live demo: [MI Survey](https://mi-survey.vercel.app/)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✨ Features
+- 10 questions, each with 3 answer options
+- Stepper navigation (1 question per page)
+- **No back navigation** (forward-only survey flow)
+- **Persisted answers** using Redux Toolkit + redux-persist (survives refresh)
+- **Countdown timer** (auto-submit when time runs out)
+- **Summary page** showing all selected answers
+- Restart option (resets answers + timer)
+- Bootstrap styling with **Atomic Design structure** (atoms → molecules → organisms)
+- **Bootstrap alerts** for success, error, and timeout notifications
+- End-to-end tested with **Cypress**
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 📦 Dependencies
+### Core
+- [@reduxjs/toolkit](https://redux-toolkit.js.org/) — `^2.9.0`  
+- [bootstrap](https://getbootstrap.com/) — `^5.3.8`  
+- [react](https://react.dev/) — `^19.1.1`  
+- [react-redux](https://react-redux.js.org/) — `^9.2.0`  
+- [react-router-dom](https://reactrouter.com/) — `^7.9.1`  
+- [redux-persist](https://github.com/rt2zz/redux-persist) — `^6.0.0`  
+- [sass](https://sass-lang.com/) — `^1.92.1`  
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Dev & Tooling
+- [cypress](https://www.cypress.io/) — `^15.2.0`  
+- [eslint](https://eslint.org/) — `^9.33.0`  
+- [typescript](https://www.typescriptlang.org/) — `~5.8.3`  
+- [vite](https://vitejs.dev/) — `^7.1.2`  
+
+---
+
+## Prerequisites
+- **Node.js**: Version 18 or later.
+- **npm**: Version 9 or later.
+
+---
+
+## Getting Started
+
+### Clone the Repository
+```bash
+git clone https://github.com/racmathafidz/MI-Survey.git
+cd mi-survey
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Install Dependencies
+```bash
+npm install
 ```
+
+### Run Development Server
+```bash
+npm run dev
+```
+The app will be available at http://localhost:5173.
+
+## Testing with Cypress
+To run the tests using Cypress, follow these steps:
+
+### Install Cypress Dependencies
+If you haven't installed Cypress yet, do so by running:
+```bash
+npm install cypress --save-dev
+```
+
+### Run Cypress Tests
+To open Cypress and run the tests, use the following command:
+```bash
+npm run cy:open
+```
+This will launch Cypress in interactive mode, allowing you to run the tests in your preferred browser.
+
+## Support
+If you encounter any issues or have questions, feel free to create an issue on GitHub or reach out to the maintainer.
